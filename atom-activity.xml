@@ -157,22 +157,10 @@
         </section>
 
         <section anchor="activity.verb" title="Verb">
-          <t>An absolute URI value that identifies the action of the activity.
-          An Activity construct MUST have one or more verbs.</t>
-
-          <t>If an activity contains more than one verb, all verbs MUST be
-          generalizations or specializations of one another. For example, the
-          general verb "to experience" might be specialized by a verb "to
-          listen to". If a more specific verb is used, publishers SHOULD also
-          include all of its more general verbs so that a consumer may use the
-          most specific verb it understands.</t>
-
-          <t>An activity consumer SHOULD use the most specific verb it
-          understands within each entry. If none of the activity's verbs are
-          understood by the consumer, it MAY use other information to infer
-          the verb, or the consumer MAY use the content of the activity title,
-          summary and/or content to obtain a human-readable description of the
-          activity.</t>
+          <t>A URI value that identifies the action of the activity.  This URI
+          MUST be an absolute URI, or a relative URI relative to the base URI of
+          <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
+          Activity construct MUST have exactly one verb.</t>
         </section>
 
         <section anchor="activity.object" title="Object">
@@ -256,21 +244,10 @@
         </section>
 
         <section anchor="object.object-type" title="Object Type">
-          <t>This absolute URI identifies the type of object. An Object
-          construct MAY have one or more types.</t>
-
-          <t>If an object contains more than one object type, all types MUST
-          be generalizations or specializations of one another. For example,
-          the general type "article" might be specialized by the type "weblog
-          entry". If a more specific type is used, publishers SHOULD also
-          include all of its more general types so that a consumer may use the
-          most specific type it understands.</t>
-
-          <t>Activity consumers SHOULD use the most specific object type that
-          they understand within each entry. The consumer MAY use other
-          information to infer the object type if it does not recognize any of
-          the object types given. If it cannot infer the object type, a
-          consumer MUST act as though no object type is present.</t>
+          <t>A URI value that identifies the type of object.  This URI
+          MUST be an absolute URI, or a relative URI relative to the base URI of
+          <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
+          Object construct MAY have a type, but MUST NOT have more than one.</t>
 
           <t>If no object type is present, the object has no specific type.
           Consumers SHOULD refer to such objects only by their names. For
