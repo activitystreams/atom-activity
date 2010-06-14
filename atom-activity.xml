@@ -141,14 +141,6 @@
       <section anchor="activity" title="The Activity Construct">
         <t>An activity consists of the following logical components:</t>
 
-        <section anchor="activity.icon" title="Icon">
-          <t>This URI value identifies an image resource which provides a
-          visual representation of the activity, intended for human
-          consumption. The image SHOULD be square and SHOULD be suitable for
-          presentation at a small size. An Activity construct MAY have an icon
-          but it MUST NOT have more than one.</t>
-        </section>
-
         <section anchor="activity.time" title="Time">
           <t>A Date Construct, as defined in section 3.3 of <xref
           target="RFC4287"></xref>, that identifies the time at which the
@@ -201,17 +193,6 @@
           construct MAY have a target but it MUST NOT have more than one.</t>
         </section>
 
-        <section anchor="activity.generator" title="Generator">
-          <t>The generator of an activity is an <xref
-          target="application">Application Construct</xref> that identifies
-          that application which created it, which may be separate from the
-          service to which the activity is published. For example, a
-          third-party application on a mobile phone may be used to post a
-          photo to a photo sharing service. The activity generator is
-          identified by a name and optional URI. An Activity construct MAY
-          have a generator but it MUST NOT have more than one.</t>
-        </section>
-
         <section anchor="activity.title" title="Title">
           <t>An HTML representation of the natural language title for this
           activity. Consumers MAY use the value of this field, if set, as a
@@ -262,10 +243,9 @@
         </section>
 
         <section anchor="object.image" title="Representative Image">
-          <t>A <xref target="medialink">Media Link Construct</xref> that
-          identifies an image resource which provides a visual representation
-          of the object, intended for human consumption. An Object construct
-          MAY have a representative image, but MUST NOT have more than
+          <t>This URI value identifies an image resource which provides a visual
+          representation of the object, intended for human consumption. An Object
+          construct MAY have a representative image, but MUST NOT have more than
           one.</t>
         </section>
 
@@ -297,115 +277,6 @@
           example, when forming an activity sentence a consumer might say
           "Johan posted 'My Cat'" rather than "Johan posted a photo: 'My
           Cat'".</t>
-        </section>
-
-        <section anchor="object.in-reply-to-object" title="In Reply To Object">
-          <t>An <xref target="object">Object Construct</xref> that this object
-          is a response to. An Object Construct MAY have one In Reply To
-          Object, but MUST NOT have more than one.</t>
-
-          <t>This is not set unless the Object Construct is a response to
-          another Object Construct.</t>
-        </section>
-
-        <section anchor="object.attached-object" title="Attached Object">
-          <t>An <xref target="object">Object Construct</xref> that is attached
-          to this object. An Object Construct MAY have one or more attached
-          objects.</t>
-
-          <t>An attached Object Construct can be used when one object is used
-          as a wrapper or carrier for another object, similar to the concept
-          of attached files in an email message.</t>
-        </section>
-
-        <section anchor="object.action-link" title="Action Link">
-          <t>An <xref target="actionlink">Action Link</xref> that represents
-          an action that a human could peform on this object. An Object
-          Construct MAY have one or more Action Links.</t>
-        </section>
-      </section>
-
-      <section anchor="medialink" title="The Media Link Construct">
-        <t>A Media Link Construct represents a hyperlink to a media item.
-        TODO: elaborate</t>
-
-        <t>A Media Link Construct consists of the logical components defined
-        in the following sections.</t>
-
-        <section title="Target URL">
-          <t>The URL that is the target of this hyperlink. A Media Link
-          Construct MUST have one Target URL and MUST NOT have more than
-          one.</t>
-        </section>
-
-        <section title="Media Type">
-          <t>A hint to the consumer about the media type of the target
-          resource. The value of this component is a media type as defined in
-          [TODO: reference and xref]. A Link Construct MAY have one Media Type
-          but MUST NOT have more than one.</t>
-        </section>
-
-        <section title="Width">
-          <t>A hint to the consumer about the natural width of the resource
-          that is the target of this hyperlink, in pixels. This MAY be
-          included when the target resource is a visual media item such as an
-          image, video or embeddable HTML page, but a Link Construct MUST NOT
-          have more than one Width.</t>
-        </section>
-
-        <section title="Height">
-          <t>A hint to the consumer about the natural height of the resource
-          that is the target of this hyperlink, in pixels. This MAY be
-          included when the target resource is a visual media item such as an
-          image, video or embeddable HTML page, but a Link Construct MUST NOT
-          have more than one Height.</t>
-        </section>
-
-        <section title="Duration">
-          <t>A hint to the consumer about the length of the resource that is
-          the target of this hyperlink, in seconds. This MAY be included when
-          the target resource is a time-based media item such as an audio or
-          video, but a Link Construct MUST NOT have more than one
-          Duration.</t>
-        </section>
-      </section>
-
-      <section anchor="actionlink" title="The Action Link Construct">
-        <t>An Action Link Construct represents a hyperlink at which an action
-        can be performed. TODO: elaborate</t>
-
-        <t>An Action Link Construct consists of the logical components defined
-        in the following sections.</t>
-
-        <section title="Target URL">
-          <t>The URL that is the target of this hyperlink. An Action Link
-          Construct MUST have one Target URL and MUST NOT have more than
-          one.</t>
-        </section>
-
-        <section title="Caption">
-          <t>The human-readable caption of the UI element that a user will
-          interact with in order to navigate to the Target URL. An Action Link
-          Construct MUST have one Caption and MUST NOT have more than one.</t>
-        </section>
-      </section>
-
-      <section anchor="application" title="The Application Construct">
-        <t>An Application Construct represents an application that is used to
-        create and/or post an object. TODO: elaborate</t>
-
-        <t>An Application Construct consists of the logical components defined
-        in the following sections.</t>
-
-        <section title="Name">
-          <t>A human-readable name for this application. An Application
-          Construct MUST have one Name and MUST NOT have more than one.</t>
-        </section>
-
-        <section title="Site URL">
-          <t>The URL of a page that represents or describes the application to
-          humans. An Application Construct MAY have a Site URL but MUST NOT
-          have more than one.</t>
         </section>
       </section>
     </section>
@@ -501,11 +372,6 @@
               child elements then this property is not set for any of the
               Activity Constructs represented by the entry.</t>
 
-              <t hangText="Generator">The <xref
-              target="activity.generator">Generator</xref> of the Activity
-              Construct is represented by the first <spanx style="verb">atom:generator</spanx>
-              child element as defined in <xref
-              target="application-as-atom-generator"></xref>.</t>
             </list></t>
 
           <t>The set of activities represented by a full activity entry is the
@@ -628,18 +494,6 @@
               style="verb">activity:target</spanx> element as defined in <xref
               target="xml.activity.target"></xref>.</t>
 
-              <t hangText="thr:in-reply-to">When used to describe the <xref
-              target="object.in-reply-to-object">In Reply To Object of an
-              Object Construct</xref>, an Object Construct is represented
-              using the thr:in-reply-to element as defined in <xref
-              target="object-as-in-reply-to"></xref>.</t>
-
-              <t hangText="atom:link">When used to describe <xref
-              target="object.attached-object">Attached Object of an Object
-              Construct</xref>, an Object Construct is represented using the
-              atom:link element as defined in <xref
-              target="object-as-link"></xref>.</t>
-
               <t hangText="other elements">Other specifications or object
               types may define additional elements that can be used to
               represent objects.</t>
@@ -680,10 +534,7 @@
               target="object.image">representative image</xref> of the Object
               Construct is represented by the first <spanx style="verb">atom:link</spanx>
               element whose rel attribute value is "preview" and a whose type
-              attribute value is an image media type. The atom:link element is
-              processed as defined in <xref
-              target="media-link-as-atom-link"></xref> to produce a Media Link
-              Construct.</t>
+              attribute value is an image media type.</t>
 
               <t hangText="Permalink URL">The <xref
               target="object.permalink">permalink URL</xref> of the Object
@@ -697,19 +548,6 @@
               Construct is represented by an <spanx style="verb">activity:object-type</spanx>
               element as defined in <xref
               target="xml.activity.object-type"></xref>.</t>
-
-              <t hangText="In Reply To Object">The <xref
-              target="object.in-reply-to-object">In Reply To Object</xref> of
-              the Object Construct is represented by the first <spanx
-              style="verb">thr:in-reply-to</spanx> child element, which
-              represents an Object Construct as defined in <xref
-              target="object-as-in-reply-to"></xref>.</t>
-
-              <t hangText="Attached Object">Each <xref
-              target="object.attached-object">Attached Object</xref> is
-              represented by an atom:link child element whose link relation
-              type is "related", which represents an Object Construct as
-              defined in <xref target="object-as-link"></xref>.</t>
             </list></t>
         </section>
 
@@ -736,104 +574,6 @@
               style="verb">atom:link</spanx> element is present, consumers
               SHOULD accept the content of the <spanx style="verb">atom:uri</spanx>
               element as representing the Object Permalink URL.</t>
-            </list></t>
-        </section>
-
-        <section anchor="object-as-in-reply-to"
-                 title="Object represented as thr:in-reply-to">
-          <t>When used to describe the <xref
-          target="object.in-reply-to-object">In Reply To Object of an Object
-          Construct</xref>, an Object Construct is represented using the
-          thr:in-reply-to element as defined in section 3 of <xref
-          target="RFC4685"></xref>. The components of the Object Construct are
-          represented using child elements as defined in <xref
-          target="object-components"></xref>, with the following
-          exceptions:</t>
-
-          <t><list style="hanging">
-              <t hangText="ID">The ID of the Object Construct is represented
-              by the ref attribute of the <spanx style="verb">thr:in-reply-to</spanx>
-              element.</t>
-
-              <t hangText="Permalink URL">The URL of the Object Construct is
-              represented by the href attribute of the <spanx style="verb">thr:in-reply-to</spanx>
-              element.</t>
-            </list></t>
-
-          <t><xref target="RFC4685"></xref> does not define any child elements
-          for <spanx style="verb">thr:in-reply-to</spanx>. When used with no
-          child elements, the element represents an Object Construct with an
-          ID and URL but with no other components set.</t>
-        </section>
-
-        <section anchor="object-as-link"
-                 title="Object represented as atom:link">
-          <t>When used to describe an <xref
-          target="object.attached-object">Attached Object of an Object
-          Construct</xref>, an Object Construct is represented using an
-          atom:link element as defined in section 4.2.7 of <xref
-          target="RFC4287"></xref>.</t>
-
-          <t>When used to describe an Attached Object, the atom:link element
-          should have a link relation type of "related".</t>
-
-          <t>The components of the Object Construct are represented using
-          child elements as defined in <xref
-          target="object-components"></xref>, with the following
-          exceptions:</t>
-
-          <t><list style="hanging">
-              <t hangText="Permalink URL">The URL of the Object Construct is
-              represented by the href attribute of the <spanx style="verb">atom:link</spanx>
-              element.</t>
-            </list></t>
-
-          <t><xref target="RFC4287"></xref> does not define any child elements
-          for <spanx style="verb">atom:link</spanx>. When used with no child
-          elements, the element represents an Object Construct with a URL but
-          with no other components set.</t>
-        </section>
-      </section>
-
-      <section title="Other Representations">
-        <t>[TODO: write something here]</t>
-
-        <section anchor="media-link-as-atom-link"
-                 title="Media Link Construct represented as atom:link">
-          <t>The components of a Media Link Construct can be represented by
-          the following attributes of an atom:link element:</t>
-
-          <t><list style="hanging">
-              <t hangText="Target URL">Represented by the <spanx style="verb">href</spanx>
-              attribute of the <spanx style="verb">atom:link</spanx>
-              element.</t>
-
-              <t hangText="Width">Represented by the <spanx style="verb">media:width</spanx>
-              attribute of the <spanx style="verb">atom:link</spanx>
-              element.</t>
-
-              <t hangText="Height">Represented by the <spanx style="verb">media:height</spanx>
-              attribute of the <spanx style="verb">atom:link</spanx>
-              element.</t>
-
-              <t hangText="Duration">Represented by the <spanx style="verb">media:duration</spanx>
-              attribute of the <spanx style="verb">atom:link</spanx>
-              element.</t>
-            </list></t>
-        </section>
-
-        <section anchor="application-as-atom-generator"
-                 title="Application Construct represented as atom:generator">
-          <t>The components of an Application Construct can be represented by
-          the following attributes of an atom:generator element:</t>
-
-          <t><list style="hanging">
-              <t hangText="Name">Represented by the content of the <spanx
-              style="verb">atom:generator</spanx> element.</t>
-
-              <t hangText="Site URL">Represented by the <spanx style="verb">uri</spanx>
-              attribute of the <spanx style="verb">atom:generator</spanx>
-              element.</t>
             </list></t>
         </section>
       </section>
@@ -953,19 +693,6 @@
             Construct is represented by an <spanx style="verb">activity:object-type</spanx>
             element as defined in <xref
             target="xml.activity.object-type"></xref>.</t>
-
-            <t hangText="In Reply To Object">The <xref
-            target="object.in-reply-to-object">In Reply To Object</xref> of
-            the Object Construct is represented by the first <spanx
-            style="verb">thr:in-reply-to</spanx> child element, which
-            represents an Object Construct as defined in <xref
-            target="object-as-in-reply-to"></xref>.</t>
-
-            <t hangText="Attached Object">Each <xref
-            target="object.attached-object">Attached Object</xref> is
-            represented by an atom:link child element whose link relation type
-            is "related", which represents an Object Construct as defined in
-            <xref target="object-as-link"></xref>.</t>
           </list></t>
       </section>
     </section>
