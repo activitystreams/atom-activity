@@ -158,7 +158,7 @@
 
         <section anchor="activity.verb" title="Verb">
           <t>A URI value that identifies the action of the activity.  This URI
-          MUST be an absolute URI, or a relative URI relative to the base URI of
+          MUST be an absolute URI, or a URI relative to the base URI of
           <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
           Activity construct MUST have exactly one verb.</t>
         </section>
@@ -213,9 +213,10 @@
           <t>The id of an object construct is an absolute URI that uniquely
           identifies the object. An Object construct SHOULD have exactly one
           ID value. If an object construct does not have an ID value consumers
-          MAY use the Permalink URL as a weaker identifier, but must in this
-          case allow for the fact that Permalink URL is not defined to be
-          unique across all objects and be prepared to handle duplicates.</t>
+          MAY use the <xref target="object.permalink">Permalink URL</xref> as
+          a weaker identifier, but must in this case allow for the fact that
+          Permalink URL is not defined to be unique across all objects and be
+          prepared to handle duplicates.</t>
         </section>
 
         <section anchor="object.name" title="Name">
@@ -245,7 +246,7 @@
 
         <section anchor="object.object-type" title="Object Type">
           <t>A URI value that identifies the type of object.  This URI
-          MUST be an absolute URI, or a relative URI relative to the base URI of
+          MUST be an absolute URI, or a URI relative to the base URI of
           <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
           Object construct MAY have a type, but MUST NOT have more than one.</t>
 
