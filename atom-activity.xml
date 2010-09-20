@@ -11,7 +11,7 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="exp" docName="atom-activity-01" ipr="none">
+<rfc category="std" docName="atom-activity-10" ipr="none">
   <front>
     <title abbrev="AtomActivity">Atom Activity Extensions 1.0</title>
 
