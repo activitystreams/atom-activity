@@ -13,7 +13,7 @@
 <?rfc subcompact="no"?>
 <rfc category="exp" docName="atom-activity-01" ipr="none">
   <front>
-    <title abbrev="AtomActivity">Atom Activity Extensions (Draft)</title>
+    <title abbrev="AtomActivity">Atom Activity Extensions 1.0</title>
 
     <author fullname="Martin Atkins" initials="M." surname="Atkins">
       <organization>Six Apart</organization>
@@ -35,7 +35,7 @@
       <organization>Microsoft</organization>
     </author>
 
-    <date month="March" year="2010" />
+    <date day="20" month="September" year="2010" />
 
     <abstract>
       <t>This document presents an extension that allows activities on social
