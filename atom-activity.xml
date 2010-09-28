@@ -11,7 +11,8 @@
 <?rfc inline="yes"?>
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
-<rfc category="std" docName="atom-activity-10" ipr="none">
+<?rfc private="Activity Streams Working Group"?>
+<rfc docName="atom-activity-10">
   <front>
     <title abbrev="AtomActivity">Atom Activity Extensions 1.0</title>
 
