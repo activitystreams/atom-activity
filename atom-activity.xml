@@ -695,7 +695,7 @@
 
       <section anchor="xml.activity.verb" title="The activity:verb Element">
         <t>The <spanx style="verb">activity:verb</spanx> element represents the
-        of the Verb of an Activity Construct as defined in <xref
+        Verb of an Activity Construct as defined in <xref
         target="activity.verb"></xref>. Its content is an IRI that identifies
         the verb.</t>
       </section>
