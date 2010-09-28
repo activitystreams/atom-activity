@@ -51,7 +51,7 @@
   </front>
 
   <middle>
-    <section title="Introduction">
+    <section anchor="introduction" title="Introduction">
       <t>The Atom Syndication Format, as defined in <xref
       target="RFC4287"></xref>, is widely used to transmit various types of
       web content such as weblog posts, news headlines, as well as user
@@ -69,7 +69,7 @@
       display.</t>
     </section>
 
-    <section title="Notational Conventions">
+    <section anchor="conventions" title="Notational Conventions">
       <t>This document refers to elements in a number of XML namespaces as
       defined in <xref target="xml-names"></xref>. For brevity, these elements
       shall be referred to using prefixes rather than their full namespace
@@ -213,7 +213,7 @@
           <t>The id of an object construct is an absolute URI that uniquely
           identifies the object. An Object construct SHOULD have exactly one
           ID value. If an object construct does not have an ID value consumers
-          MAY use the <xref target="object.permalink">Permalink URL</xref> as
+          MAY use the <xref target="object.url">Permalink URL</xref> as
           a weaker identifier, but must in this case allow for the fact that
           Permalink URL is not defined to be unique across all objects and be
           prepared to handle duplicates.</t>
@@ -238,13 +238,13 @@
           one.</t>
         </section>
 
-        <section anchor="object.permalink" title="Permalink URL">
+        <section anchor="object.url" title="Permalink URL">
           <t>This URI value identifies a resource which provides an HTML
           representation of the object. An Object construct MAY have a
           Permalink URL, but MUST NOT have more than one.</t>
         </section>
 
-        <section anchor="object.object-type" title="Object Type">
+        <section anchor="object.type" title="Object Type">
           <t>A URI value that identifies the type of object.  This URI
           MUST be an absolute URI, or a URI relative to the base URI of
           <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
@@ -259,13 +259,13 @@
       </section>
     </section>
 
-    <section title="Atom Representation">
+    <section anchor="atom" title="Atom Representation">
       <t>Activities can be represented in an Atom document using a combination
       of conventions and custom extension elements. Activities are represented
       using atom:entry elements but may exist in one of two forms, an Activity
       Entry or an Object Entry.</t>
 
-      <section anchor="activityasentry"
+      <section anchor="atom.activity"
                title="Activity represented as atom:entry">
         <t>Any valid Atom entry as defined by section 4.1.2 of <xref
         target="RFC4287"></xref> is a representation of one or more activities
@@ -273,9 +273,9 @@
 
         <t>If the atom:entry contains at least one activity:object element
         then it is a Full Activity Entry and MUST be interpreted as described
-        in <xref target="fullactivityentry"></xref>. Otherwise the entry is an
+        in <xref target="atom.activity.full"></xref>. Otherwise the entry is an
         Implied Activity Shorthand Entry and MUST be interpreted as described
-        in <xref target="impliedactivityentry"></xref>.</t>
+        in <xref target="atom.activity.implied"></xref>.</t>
 
         <t>Although there is not a one-to-one mapping between an Atom entry
         and an activity, consumers SHOULD retain the value of the atom:id
@@ -286,7 +286,7 @@
         activities and has no semantic significance for Activity Streams
         processing.</t>
 
-        <section anchor="fullactivityentry" title="Full Activity Entry">
+        <section anchor="atom.activity.full" title="Full Activity Entry">
           <t>A Full Activity Entry represents a selection of one or more
           Activity Constructs which have differing Objects but all share the
           same values for the other Activity Construct properties. An activity
@@ -305,11 +305,11 @@
               applies to the entry, as defined by section 4.2.1 of <xref
               target="RFC4287"></xref>. The representation of an Object
               Construct as an atom:author element is defined in <xref
-              target="object-as-author"></xref>.</t>
+              target="atom.object.author"></xref>.</t>
 
               <t hangText="Object">Each <spanx style="verb">activity:object</spanx>
               child element of the entry, as defined in <xref
-              target="xml.activity.object"></xref>, represents the <xref
+              target="xml.object"></xref>, represents the <xref
               target="activity.object">Object</xref> of its respective
               Activity Construct.</t>
 
@@ -317,16 +317,16 @@
               target="activity.target">Target</xref> of each of the Activity
               Constructs is represented by the first activity:target child
               element of the entry, as defined in <xref
-              target="xml.activity.target"></xref>. If no such element is
+              target="xml.target"></xref>. If no such element is
               present, the Activity Constructs have no Target.</t>
 
               <t hangText="Verb">The <xref target="activity.verb">verb
               URI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
-              <xref target="xml.activity.verb"></xref>. If the entry has no
+              <xref target="xml.verb"></xref>. If the entry has no
               <spanx style="verb">activity:verb</spanx> child element, then
               the Activity Construct has the "Post" verb as defined in
-              <xref target="post-verb"></xref>.</t>
+              <xref target="post"></xref>.</t>
 
               <t hangText="Time">The <xref target="activity.time">Time</xref>
               of each of the Activity Constructs is represented by the
@@ -370,7 +370,7 @@
           activity streams processing.</t>
         </section>
 
-        <section anchor="impliedactivityentry"
+        <section anchor="atom.activity.implied"
                  title="Implied Activity Shorthand">
           <t>An implied activity shorthand entry represents exactly one
           Activity Construct in terms of its object. In this mode, the <spanx
@@ -390,14 +390,14 @@
               entry, as defined by section 4.2.1 of <xref
               target="RFC4287"></xref>. The representation of an Object
               Construct as an atom:author element is defined in <xref
-              target="object-as-author"></xref>.</t>
+              target="atom.object.author"></xref>.</t>
 
               <t hangText="Object">The <xref
               target="activity.object">Object</xref> ofthe Activity Construct
               is represented by the entry itself. The representation of an
               Object Construct as an atom:entry element uses the child
               elements defined in <xref
-              target="object-components"></xref>.</t>
+              target="atom.object.components"></xref>.</t>
 
               <t hangText="Target">The Activity Construct does not have a
               <xref target="activity.target">Target</xref>.</t>
@@ -405,10 +405,10 @@
               <t hangText="Verb">The <xref target="activity.verb">verb
               URI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
-              <xref target="xml.activity.verb"></xref>. If the entry has no
+              <xref target="xml.verb"></xref>. If the entry has no
               <spanx style="verb">activity:verb</spanx> child element, then
               the Activity Construct has the "Post" verb as defined in
-              <xref target="post-verb"></xref>.</t>
+              <xref target="post"></xref>.</t>
 
               <t hangText="Time">The <xref target="activity.time">Time</xref>
               of each of the Activity Constructs is represented by the
@@ -433,18 +433,18 @@
         </section>
       </section>
 
-      <section title="Object Representations">
+      <section anchor="atom.object" title="Object Representations">
         <t><xref target="object">Object constructs</xref> are used to identify
         a number of different components in an activity, including the <xref
         target="activity.actor">Actor</xref> and <xref
         target="activity.target">Object</xref> of an activity, among others.
         Depending on what an object is used to identify, it is rendered in
         Atom using a different root element, as defined in <xref
-        target="object-element"></xref>. The components of the object are
+        target="atom.object.elements"></xref>. The components of the object are
         represented using child elements as defined in <xref
-        target="object-components"></xref>.</t>
+        target="atom.object.components"></xref>.</t>
 
-        <section anchor="object-element"
+        <section anchor="atom.object.elements"
                  title="Object Construct Representations">
           <t>Object constructs can be represented using the following
           elements:</t>
@@ -452,28 +452,28 @@
           <t><list style="hanging">
               <t hangText="atom:entry">When used to describe the object of an
               Implied Activity as defined in <xref
-              target="impliedactivityentry"></xref>, an Object Construct is
+              target="atom.activity.implied"></xref>, an Object Construct is
               represented using the <spanx style="verb">atom:entry</spanx>
               element, using the elements defined in <xref
-              target="object-components"></xref>.</t>
+              target="atom.object.components"></xref>.</t>
 
               <t hangText="atom:author">When used to describe the <xref
               target="activity.actor">Actor of an Activity Construct</xref>,
               an Object Construct is represented using the <spanx
               style="verb">atom:author</spanx> element, as defined in <xref
-              target="object-as-author"></xref>.</t>
+              target="atom.object.author"></xref>.</t>
 
               <t hangText="activity:object">When used to describe the <xref
               target="activity.object">Object of an Activity Construct</xref>,
               an Object Construct is represented using the <spanx
               style="verb">activity:object</spanx> element as defined in <xref
-              target="xml.activity.object"></xref>.</t>
+              target="xml.object"></xref>.</t>
 
               <t hangText="activity:target">When used to describe the <xref
               target="activity.target">Target of an Activity Construct</xref>,
               an Object Construct is represented using the <spanx
               style="verb">activity:target</spanx> element as defined in <xref
-              target="xml.activity.target"></xref>.</t>
+              target="xml.target"></xref>.</t>
 
               <t hangText="other elements">Other specifications or object
               types may define additional elements that can be used to
@@ -487,7 +487,7 @@
           Object Type or extension.</t>
         </section>
 
-        <section anchor="object-components"
+        <section anchor="atom.object.components"
                  title="Common Representation for Object Construct Components">
           <t>Unless specified otherwise, the components of an Object Construct
           are represented using child elements of the representative element
@@ -518,28 +518,28 @@
               attribute value is an image media type.</t>
 
               <t hangText="Permalink URL">The <xref
-              target="object.permalink">permalink URL</xref> of the Object
+              target="object.url">permalink URL</xref> of the Object
               Construct is represented by the href attribute of an <spanx
               style="verb">atom:link</spanx> element, whose rel attribute
               value is "alternate" and whose type attribute value is
               "text/html".</t>
 
               <t hangText="Object Type">The <xref
-              target="object.object-type">object type URL</xref> of the Object
+              target="object.type">object type URL</xref> of the Object
               Construct is represented by an <spanx style="verb">activity:object-type</spanx>
               element as defined in <xref
-              target="xml.activity.object-type"></xref>.</t>
+              target="xml.object-type"></xref>.</t>
             </list></t>
         </section>
 
-        <section anchor="object-as-author"
+        <section anchor="atom.object.author"
                  title="Object represented as atom:author">
           <t>When used to describe the <xref target="activity.actor">Actor of
           an Activity</xref>, an Object Construct is represented using the
           <spanx style="verb">atom:author</spanx> element (see section 4.2.1
           of <xref target="RFC4287"></xref>). The components of the Object
           Construct are represented using child elements as defined in <xref
-          target="object-components"></xref>, with the following
+          target="atom.object.components"></xref>, with the following
           exceptions:</t>
 
           <t><list style="hanging">
@@ -560,7 +560,7 @@
       </section>
     </section>
 
-    <section anchor="rss2representation" title="RSS 2.0 Representation">
+    <section anchor="rss" title="RSS 2.0 Representation">
       <t>Activities can be represented in an RSS 2.0.11 document, as defined
       by <xref target="RSS2"></xref>, using a combination of conventions and
       custom extension elements. An activity is represented using an RSS
@@ -598,7 +598,7 @@
         <t><list style="hanging">
             <t hangText="Actor">The <xref target="activity.actor">Actor</xref>
             of the Activity Construct is the feed-wide actor as described in
-            <xref target="rss2representation"></xref>.</t>
+            <xref target="rss"></xref>.</t>
 
             <t hangText="Object">The <xref
             target="activity.object">Object</xref> of the Activity Construct
@@ -612,10 +612,10 @@
             <t hangText="Verb">Each <xref target="activity.verb">verb
             URI</xref> of the Activity Construct is represented by an <spanx
             style="verb">activity:verb</spanx> child element as defined in
-            <xref target="xml.activity.verb"></xref>. If the item has no
+            <xref target="xml.verb"></xref>. If the item has no
             <spanx style="verb">activity:verb</spanx> child elements then the
             Activity Construct has only the "Post" verb as defined in <xref
-            target="post-verb"></xref>.</t>
+            target="post"></xref>.</t>
 
             <t hangText="Time">The <xref target="activity.time">Time</xref> of
             each of the Activity Constructs is represented by the pubDate
@@ -660,7 +660,7 @@
             image media type.</t>
 
             <t hangText="Permalink URL">The <xref
-            target="object.permalink">permalink URL</xref> of the Object
+            target="object.url">permalink URL</xref> of the Object
             Construct is represented by the first RSS <spanx style="verb">link</spanx>
             child element, as defined in <xref target="RSS2"></xref>. If no
             such element is present, the value of the first <spanx
@@ -670,37 +670,37 @@
             has no Permalink URL.</t>
 
             <t hangText="Object Type">Each <xref
-            target="object.object-type">object type URL</xref> of the Object
+            target="object.type">object type URL</xref> of the Object
             Construct is represented by an <spanx style="verb">activity:object-type</spanx>
             element as defined in <xref
-            target="xml.activity.object-type"></xref>.</t>
+            target="xml.object-type"></xref>.</t>
           </list></t>
       </section>
     </section>
 
-    <section title="Elements used in XML Representations">
+    <section anchor="xml" title="Elements used in XML Representations">
       <t>This specification defines several extension elements in the XML
       namespace <spanx style="verb">http://activitystrea.ms/spec/1.0/</spanx>.
       These elements are used in both the Atom and RSS serializations and MAY
       be used by other XML-based serializations of the activity streams data
       model defined by other specifications.</t>
 
-      <section anchor="xml.activity.object-type"
+      <section anchor="xml.object-type"
                title="The activity:object-type Element">
         <t>An <spanx style="verb">activity:object-type</spanx> element
         represents the Object Type of an Object Construct as defined
-        in <xref target="object.object-type"></xref>. Its content is an IRI
+        in <xref target="object.type"></xref>. Its content is an IRI
         that identifies the object type.</t>
       </section>
 
-      <section anchor="xml.activity.verb" title="The activity:verb Element">
+      <section anchor="xml.verb" title="The activity:verb Element">
         <t>The <spanx style="verb">activity:verb</spanx> element represents the
         Verb of an Activity Construct as defined in <xref
         target="activity.verb"></xref>. Its content is an IRI that identifies
         the verb.</t>
       </section>
 
-      <section anchor="xml.activity.object"
+      <section anchor="xml.object"
                title="The activity:object Element">
         <t>An <spanx style="verb">activity:object</spanx> element represents
         the Object Construct that is the Object of an Activity Construct as
@@ -708,12 +708,12 @@
 
         <t>The content model of an <spanx style="verb">activity:object</spanx>
         element includes the elements indicated in <xref
-        target="object-components"></xref>, with the meanings defined in that
+        target="atom.object.components"></xref>, with the meanings defined in that
         section, as well as any extension elements defined by the Atom
         serializations of the object type listed for the object.</t>
       </section>
 
-      <section anchor="xml.activity.target"
+      <section anchor="xml.target"
                title="The activity:target Element">
         <t>An <spanx style="verb">activity:target</spanx> element represents
         the Object Construct that is the Target of an Activity Construct as
@@ -721,13 +721,13 @@
 
         <t>The content model of an <spanx style="verb">activity:target</spanx>
         element includes the elements indicated in <xref
-        target="object-components"></xref>, with the meanings defined in that
+        target="atom.object.components"></xref>, with the meanings defined in that
         section, as well as any extension elements defined by the Atom
         serializations of the object type listed for the object.</t>
       </section>
     </section>
 
-    <section anchor="post-verb" title="The &quot;Post&quot; Verb">
+    <section anchor="post" title="The &quot;Post&quot; Verb">
       <t>This specificiation defines one initial verb and defers to other
       specifications to define the full schema of verbs and object types.</t>
 
@@ -749,7 +749,7 @@
       Object component of the new object.</t>
     </section>
 
-    <section title="Security Considerations">
+    <section anchor="security" title="Security Considerations">
       <t>As this specification defines an extension to the Atom Syndication
       Format, it is subject to the same security considerations defined in
       <xref target="RFC4287"></xref>.</t>
@@ -775,7 +775,7 @@
       attribute.</t>
     </section>
 
-    <section title="IANA Considerations">
+    <section anchor="iana" title="IANA Considerations">
       <t>None.</t>
     </section>
   </middle>
@@ -912,18 +912,18 @@
       </reference>
     </references>
 
-    <section title="Acknowledgements">
+    <section anchor="acknowledgements" title="Acknowledgements">
       <t>...</t>
     </section>
 
-    <section title="Examples">
+    <section anchor="examples" title="Examples">
       <t>This appendix is non-normative. Where these examples include
       fragments of XML documents, assume the namespace declarations <spanx
       style="verb">xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/"</spanx>
       are in scope.</t>
 
-      <section anchor="activityentryexample" title="Activity Entry Examples">
-        <figure anchor="activityentrysimple">
+      <section anchor="examples.activity" title="Activity Entry Examples">
+        <figure anchor="examples.activity.simple">
           <preamble>A typical activity entry</preamble>
 
           <artwork><![CDATA[<entry>
@@ -968,7 +968,7 @@
           source feed title presented as links.</postamble>
         </figure>
 
-        <figure anchor="activityentrycomplex">
+        <figure anchor="examples.activity.complex">
           <artwork><![CDATA[<entry>
     <id>tag:photopanic.example.com,2009:/activity/4859568/PhotoAdd/2519358/2009171</id>
     <title type="text">Geraldine added two new photos to the My Pets album.</title>
@@ -1027,7 +1027,7 @@
         </figure>
       </section>
 
-      <section anchor="objectentryexample" title="Object Entry Example">
+      <section anchor="examples.object" title="Object Entry Example">
         <figure>
           <preamble>A simple object entry</preamble>
 
@@ -1045,7 +1045,7 @@
 
           <postamble>This example shows an object entry describing the object
           referred to in the activity from <xref
-          target="activityentryexample"></xref>. That example would also be an
+          target="examples.activity"></xref>. That example would also be an
           acceptable implied post activity for this entry, assuming that this
           entry were in a feed whose attributes match those of the atom:source
           in the activity entry example.</postamble>
