@@ -184,7 +184,7 @@
         <section anchor="activity.title" title="Title">
           <t>An HTML representation of the natural language title for this
           activity. Consumers MAY use the value of this field, if set, as a
-          fallback for when none of the provided verbs are recognized. An
+          fallback for when the provided verb is not recognized. An
           Activity Construct MAY have a title but it MUST NOT have more than
           one.</t>
         </section>
@@ -192,8 +192,8 @@
         <section anchor="activity.summary" title="Summary">
           <t>An HTML representation of a natural language describing this
           activity including visual elements such as thumbnails. Consumers MAY
-          use the value of this field, if set, as a fallback for when none of
-          the provided verbs are recognized. An Activity Construct MAY have a
+          use the value of this field, if set, as a fallback for when
+          the provided verb is not recognized. An Activity Construct MAY have a
           summary but it MUST NOT have more than one.</t>
         </section>
       </section>
@@ -320,10 +320,13 @@
               target="xml.activity.target"></xref>. If no such element is
               present, the Activity Constructs have no Target.</t>
 
-              <t hangText="Verb">Each <xref target="activity.verb">verb
+              <t hangText="Verb">The <xref target="activity.verb">verb
               URI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
-              <xref target="xml.activity.verb"></xref>.</t>
+              <xref target="xml.activity.verb"></xref>. If the entry has no
+              <spanx style="verb">activity:verb</spanx> child element, then
+              the Activity Construct has the "Post" verb as defined in
+              <xref target="post-verb"></xref>.</t>
 
               <t hangText="Time">The <xref target="activity.time">Time</xref>
               of each of the Activity Constructs is represented by the
@@ -331,7 +334,7 @@
               4.2.9 of <xref target="RFC4287"></xref>.</t>
 
               <t hangText="Title">If the entry has exactly one <spanx
-              style="verb">activity:object</spanx> child element, the the
+              style="verb">activity:object</spanx> child element, the
               <xref target="activity.title">Title</xref> of each of the single
               Activity Construct represented by the entry is represented by
               the <spanx style="verb">atom:title</spanx> child element as
@@ -399,12 +402,12 @@
               <t hangText="Target">The Activity Construct does not have a
               <xref target="activity.target">Target</xref>.</t>
 
-              <t hangText="Verb">Each <xref target="activity.verb">verb
+              <t hangText="Verb">The <xref target="activity.verb">verb
               URI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
               <xref target="xml.activity.verb"></xref>. If the entry has no
-              <spanx style="verb">activity:verb</spanx> child elements then
-              the Activity Construct has only the "Post" verb as defined in
+              <spanx style="verb">activity:verb</spanx> child element, then
+              the Activity Construct has the "Post" verb as defined in
               <xref target="post-verb"></xref>.</t>
 
               <t hangText="Time">The <xref target="activity.time">Time</xref>
@@ -423,7 +426,7 @@
           activity streams annotations to be added to a feed that is
           considered by traditional Atom consumers to be a list of content
           objects rather than a list of activities, without changing the
-          meaning of that feed. Such feeds can often be recognized by humans
+          meaning of that feed. Such feeds can often be recognized
           by the fact that the <spanx style="verb">atom:title</spanx> element
           of each entry is the title of an object rather than a sentence
           describing an activity.</t>
@@ -479,7 +482,7 @@
 
           <t>The element used to represent the Object MAY have additional
           attributes and child elements that represent properties defined by
-          the Object Types of the Object or by other extensions. These
+          the Object Type of the Object or by other extensions. These
           extensions are defined by the Atom representation provided for the
           Object Type or extension.</t>
         </section>
@@ -521,7 +524,7 @@
               value is "alternate" and whose type attribute value is
               "text/html".</t>
 
-              <t hangText="Object Type">Each <xref
+              <t hangText="Object Type">The <xref
               target="object.object-type">object type URL</xref> of the Object
               Construct is represented by an <spanx style="verb">activity:object-type</spanx>
               element as defined in <xref
@@ -685,14 +688,14 @@
       <section anchor="xml.activity.object-type"
                title="The activity:object-type Element">
         <t>An <spanx style="verb">activity:object-type</spanx> element
-        represents one of the Object Types of an Object Construct as defined
+        represents the Object Type of an Object Construct as defined
         in <xref target="object.object-type"></xref>. Its content is an IRI
         that identifies the object type.</t>
       </section>
 
       <section anchor="xml.activity.verb" title="The activity:verb Element">
-        <t>An <spanx style="verb">activity:verb</spanx> element represents one
-        of the Verbs of an Activity Construct as defined in <xref
+        <t>The <spanx style="verb">activity:verb</spanx> element represents the
+        of the Verb of an Activity Construct as defined in <xref
         target="activity.verb"></xref>. Its content is an IRI that identifies
         the verb.</t>
       </section>
@@ -707,7 +710,7 @@
         element includes the elements indicated in <xref
         target="object-components"></xref>, with the meanings defined in that
         section, as well as any extension elements defined by the Atom
-        serializations of the object types listed for the object.</t>
+        serializations of the object type listed for the object.</t>
       </section>
 
       <section anchor="xml.activity.target"
@@ -720,13 +723,13 @@
         element includes the elements indicated in <xref
         target="object-components"></xref>, with the meanings defined in that
         section, as well as any extension elements defined by the Atom
-        serializations of the object types listed for the object.</t>
+        serializations of the object type listed for the object.</t>
       </section>
     </section>
 
     <section anchor="post-verb" title="The &quot;Post&quot; Verb">
       <t>This specificiation defines one initial verb and defers to other
-      specifications to define the full schema of verb and object types.</t>
+      specifications to define the full schema of verbs and object types.</t>
 
       <t>The "Post" verb describes the act of authoring an object and then
       publishing it online. The verb URI for the "Post" verb is <spanx
