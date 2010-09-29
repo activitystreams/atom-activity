@@ -91,23 +91,11 @@
 
         <c><xref target="RFC4287">The Atom Syndication Format</xref></c>
 
-        <c><spanx style="verb">thr:</spanx></c>
-
-        <c><spanx style="verb">http://purl.org/syndication/thread/1.0</spanx></c>
-
-        <c><xref target="RFC4685">Atom Threading Extensions</xref></c>
-
         <c><spanx style="verb">activity:</spanx></c>
 
         <c><spanx style="verb">http://activitystrea.ms/spec/1.0/</spanx></c>
 
         <c>Atom Activity Extensions</c>
-
-        <c><spanx style="verb">media:</spanx></c>
-
-        <c><spanx style="verb">http://purl.org/syndication/atommedia</spanx></c>
-
-        <c>Atom Media Extensions</c>
       </texttable>
 
       <t>This specification uses a shorthand form of terms from the XML
@@ -177,7 +165,7 @@
           dependent on the verb of the activity, but will often be the object
           of the English preposition "to". For example, in the activity "John
           saved a movie to his wishlist", the target of the activity is
-          'wishlist'. The activity target MUST NOT be used to identify an
+          "wishlist". The activity target MUST NOT be used to identify an
           indirect object that is not a target of the activity. An Activity
           construct MAY have a target but it MUST NOT have more than one.</t>
         </section>
@@ -800,18 +788,6 @@
         </front>
       </reference>
 
-      <reference anchor="RFC4685">
-        <front>
-          <title>Atom Threading Extensions</title>
-
-          <author fullname="James Snell" initials="J." surname="Snell">
-            <organization></organization>
-          </author>
-
-          <date month="September" year="2006" />
-        </front>
-      </reference>
-
       <reference anchor="RFC2119">
         <front>
           <title>Key words for use in RFCs to Indicate Requirement
@@ -927,7 +903,8 @@
         <figure anchor="examples.activity.simple">
           <preamble>A typical activity entry</preamble>
 
-          <artwork><![CDATA[<entry>
+          <artwork><![CDATA[
+<entry>
    <id>tag:photopanic.example.com,2008:activity01</id>
    <title>Geraldine posted a Photo on PhotoPanic</title>
    <published>2008-11-02T15:29:00Z</published>
@@ -957,7 +934,8 @@
        &lt;p&gt;Geraldine posted a Photo on PhotoPanic&lt;/p&gt;
        &lt;img src="/geraldine/photo1.jpg"&gt;
    </content>
-</entry>]]></artwork>
+</entry>
+]]></artwork>
 
           <postamble>This example shows a typical activity entry using the
           post verb defined by this specification and a hypothetical "photo"
@@ -970,7 +948,8 @@
         </figure>
 
         <figure anchor="examples.activity.complex">
-          <artwork><![CDATA[<entry>
+          <artwork><![CDATA[
+<entry>
     <id>tag:photopanic.example.com,2009:/activity/4859568/PhotoAdd/2519358/2009171</id>
     <title type="text">Geraldine added two new photos to the My Pets album.</title>
     <published>2009-06-21T00:28:35Z</published>
@@ -1018,7 +997,8 @@
       <link rel="enclosure" type="image/jpeg"
             href="/geraldine/photos/1634/full.jpg" />
     </activity:object>
-</entry>]]></artwork>
+</entry>
+]]></artwork>
 
           <postamble>Example: An activity entry showing the use of the actor,
           verb, object and target elements. Also illustrated is the use of
@@ -1032,7 +1012,8 @@
         <figure>
           <preamble>A simple object entry</preamble>
 
-          <artwork><![CDATA[<entry>
+          <artwork><![CDATA[
+<entry>
    <id>tag:photopanic.example.com,2008:photo01</id>
    <title>My Cat</title>
    <published>2008-11-02T15:29:00Z</published>
