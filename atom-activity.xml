@@ -39,16 +39,9 @@
     <date day="20" month="September" year="2010" />
 
     <abstract>
-      <t>This document presents an extension that allows activities on social
+      <t>This document presents an XML format that allows activities on social
       objects to be expressed within the Atom Syndication Format.</t>
     </abstract>
-
-    <note title="Requirements Language">
-      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-      document are to be interpreted as described in <xref
-      target="RFC2119"></xref>.</t>
-    </note>
   </front>
 
   <middle>
@@ -68,57 +61,51 @@
       readable sentences about the activity that occurred, visual
       representations of the activity, or combining similar activities for
       display.</t>
+
+      <section anchor="namespace" title="Namespace and Version">
+        <t>The <xref target="xml-names">XML Namespaces</xref> URI for the XML
+        data format described in this specification is:
+          <list>
+            <t><spanx style="verb">http://activitystrea.ms/spec/1.0/</spanx></t>
+          </list>
+        </t>
+
+        <t>For convenience, this data format may be referred to as "Atom
+        Activities 1.0".</t>
+      </section>
+
+      <section anchor="conventions" title="Notational Conventions">
+        <t>This specification uses the namespace prefix "activity:" for the
+        Namespace URI identified in <xref target="namespace"></xref>, and the
+        namespace prefix "atom:" for the Namespace URI identified in Section
+        1.2 of <xref target="RFC4287"></xref>.  Note that the choice of
+        namespace prefixes is arbitrary and not semantically significant.</t>
+
+        <t>This specification uses a shorthand form of terms from the XML
+        Infoset <xref target="xml-infoset"></xref>.  The term "element" is used
+        to refer to an element information item, and "attribute" is used to refer
+        to an attribute information item.</t>
+
+        <t>This specification allows the use of IRIs <xref
+        target="RFC3987"></xref>. Every URI <xref target="RFC3986"></xref> is
+        also an IRI, so a URI may be used wherever an IRI is named. When an IRI
+        that is not also a URI is given for dereferencing, it MUST be mapped to
+        a URI using the steps in Section 3.1 of <xref target="RFC3987"></xref>.
+        When an IRI is serving as an identifier, it MUST NOT be so mapped.</t>
+
+        <t>The text of this specification provides the sole definition of
+        conformance. Examples in this specification are non-normative.</t>
+
+        <t>This specification uses "Atom" to refer to <xref
+        target="RFC4287"></xref>.</t>
+
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+        document are to be interpreted as described in <xref
+        target="RFC2119"></xref>.</t>
+      </section>
     </section>
 
-    <section anchor="conventions" title="Notational Conventions">
-      <t>This document refers to elements in a number of XML namespaces as
-      defined in <xref target="xml-names"></xref>. For brevity, these elements
-      shall be referred to using prefixes rather than their full namespace
-      URIs. The aliases used within this document are listed in the following
-      table. The choices of namespace prefix are arbitrary and are not
-      semantically significant.</t>
-
-      <texttable>
-        <ttcol>Alias</ttcol>
-
-        <ttcol>Namespace URI</ttcol>
-
-        <ttcol>Specification</ttcol>
-
-        <c><spanx style="verb">atom:</spanx></c>
-
-        <c><spanx style="verb">http://www.w3.org/2005/Atom</spanx></c>
-
-        <c><xref target="RFC4287">The Atom Syndication Format</xref></c>
-
-        <c><spanx style="verb">activity:</spanx></c>
-
-        <c><spanx style="verb">http://activitystrea.ms/spec/1.0/</spanx></c>
-
-        <c>Atom Activity Extensions</c>
-      </texttable>
-
-      <t>This specification uses a shorthand form of terms from the XML
-      Infoset <xref target="xml-infoset"></xref>. The phrase "Information
-      Item" is omitted when naming element and attribute information items.
-      Therefore, when this specification uses the term "element," it is
-      referring to an element information item in infoset terms. Likewise,
-      when this specification uses the term "attribute," it is referring to an
-      attribute information item.</t>
-
-      <t>This specification allows the use of IRIs <xref
-      target="RFC3987"></xref>. Every URI <xref target="RFC3986"></xref> is
-      also an IRI, so a URI may be used wherever an IRI is named. When an IRI
-      that is not also a URI is given for dereferencing, it MUST be mapped to
-      a URI using the steps in Section 3.1 of <xref target="RFC3987"></xref>.
-      When an IRI is serving as an identifier, it MUST NOT be so mapped.</t>
-
-      <t>The text of this specification provides the sole definition of
-      conformance. Examples in this specification are non-normative.</t>
-
-      <t>This specification uses "the Atom specification" to refer to <xref
-      target="RFC4287"></xref>.</t>
-    </section>
 
     <section anchor="concepts" title="Activity Concepts">
       <t>In its simplest form, an activity consists of an actor, a verb, and
@@ -146,8 +133,8 @@
         </section>
 
         <section anchor="activity.verb" title="Verb">
-          <t>A URI value that identifies the action of the activity.  This URI
-          MUST be an absolute URI, or a URI relative to the base URI of
+          <t>An IRI reference that identifies the action of the activity.  This
+          value MUST be an absolute IRI, or a IRI relative to the base IRI of
           <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
           Activity construct MUST have exactly one verb.</t>
         </section>
@@ -199,13 +186,16 @@
         formats.</t>
 
         <section anchor="object.id" title="ID">
-          <t>The id of an object construct is an absolute URI that uniquely
-          identifies the object. An Object construct SHOULD have exactly one
-          ID value. If an object construct does not have an ID value consumers
-          MAY use the <xref target="object.url">Permalink URL</xref> as
-          a weaker identifier, but must in this case allow for the fact that
-          Permalink URL is not defined to be unique across all objects and be
-          prepared to handle duplicates.</t>
+          <t>The id of an object construct is an IRI that uniquely identifies
+          the object. Note that the definition of "IRI" excludes relative
+          references.  An Object construct SHOULD have an ID value, and MUST
+          NOT have more than one.</t>
+
+          <t>If an object construct does not have an ID value consumers MAY use
+          the <xref target="object.url">Permalink URL</xref> as a weaker
+          identifier, but must in this case allow for the fact that Permalink
+          URL is not defined to be unique across all objects and be prepared
+          to handle duplicates.</t>
         </section>
 
         <section anchor="object.name" title="Name">
@@ -221,21 +211,21 @@
         </section>
 
         <section anchor="object.image" title="Representative Image">
-          <t>This URI value identifies an image resource which provides a visual
+          <t>This IRI reference identifies an image resource which provides a visual
           representation of the object, intended for human consumption. An Object
           construct MAY have a representative image, but MUST NOT have more than
           one.</t>
         </section>
 
         <section anchor="object.url" title="Permalink URL">
-          <t>This URI value identifies a resource which provides an HTML
+          <t>This IRI reference identifies a resource which provides an HTML
           representation of the object. An Object construct MAY have a
           Permalink URL, but MUST NOT have more than one.</t>
         </section>
 
         <section anchor="object.type" title="Object Type">
-          <t>A URI value that identifies the type of object.  This URI
-          MUST be an absolute URI, or a URI relative to the base URI of
+          <t>An IRI reference that identifies the type of object.  This value
+          MUST be an absolute IRI, or a IRI relative to the base IRI of
           <spanx style="verb">http://activitystrea.ms/schema/1.0/</spanx>.  An
           Object construct MAY have a type, but MUST NOT have more than one.</t>
 
@@ -310,7 +300,7 @@
               present, the Activity Constructs have no Target.</t>
 
               <t hangText="Verb">The <xref target="activity.verb">verb
-              URI</xref> of the Activity Construct is represented by an <spanx
+              IRI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
               <xref target="xml.verb"></xref>. If the entry has no
               <spanx style="verb">activity:verb</spanx> child element, then
@@ -392,7 +382,7 @@
               <xref target="activity.target">Target</xref>.</t>
 
               <t hangText="Verb">The <xref target="activity.verb">verb
-              URI</xref> of the Activity Construct is represented by an <spanx
+              IRI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
               <xref target="xml.verb"></xref>. If the entry has no
               <spanx style="verb">activity:verb</spanx> child element, then
@@ -599,7 +589,7 @@
             target="activity.target">Target</xref>.</t>
 
             <t hangText="Verb">Each <xref target="activity.verb">verb
-            URI</xref> of the Activity Construct is represented by an <spanx
+            IRI</xref> of the Activity Construct is represented by an <spanx
             style="verb">activity:verb</spanx> child element as defined in
             <xref target="xml.verb"></xref>. If the item has no
             <spanx style="verb">activity:verb</spanx> child elements then the
@@ -660,33 +650,51 @@
 
             <t hangText="Object Type">Each <xref
             target="object.type">object type URL</xref> of the Object
-            Construct is represented by an <spanx style="verb">activity:object-type</spanx>
-            element as defined in <xref
-            target="xml.object-type"></xref>.</t>
+            Construct is represented by an
+            <spanx style="verb">activity:object-type</spanx> element as defined
+            in <xref target="xml.object-type"></xref>.</t>
           </list></t>
       </section>
     </section>
 
     <section anchor="xml" title="Elements used in XML Representations">
-      <t>This specification defines several extension elements in the XML
-      namespace <spanx style="verb">http://activitystrea.ms/spec/1.0/</spanx>.
-      These elements are used in both the Atom and RSS serializations and MAY
-      be used by other XML-based serializations of the activity streams data
-      model defined by other specifications.</t>
-
-      <section anchor="xml.object-type"
-               title="The activity:object-type Element">
-        <t>An <spanx style="verb">activity:object-type</spanx> element
-        represents the Object Type of an Object Construct as defined
-        in <xref target="object.type"></xref>. Its content is an IRI
-        that identifies the object type.</t>
-      </section>
+      <t>This specification defines several elements in the XML namespace
+      defined in <xref target="namespace"></xref>.  These elements are used in
+      both the Atom and RSS serializations and may be used by other XML-based
+      serializations of the activity streams data model defined by other
+      specifications.</t>
 
       <section anchor="xml.verb" title="The activity:verb Element">
         <t>The <spanx style="verb">activity:verb</spanx> element represents the
         Verb of an Activity Construct as defined in <xref
-        target="activity.verb"></xref>. Its content is an IRI that identifies
-        the verb.</t>
+        target="activity.verb"></xref>. Its content is an IRI reference that
+        identifies the verb.</t>
+
+        <section anchor="xml.verb.comparing"
+                 title="Comparing activity:verb">
+          <t>The value of <spanx style="verb">activity:verb</spanx>
+          elements can be used to determine whether an Activity construct
+          contains a recognized verb.  Processors MUST compare <spanx
+          style="verb">activity:verb</spanx> elements on a
+          character-by-character basis (in a case-sensitive fashion).
+          Comparison operations MUST be based solely on the IRI character
+          strings and MUST NOT rely on dereferencing the IRIs or URIs mapped
+          from them.  As a result, two IRIs that resolve to the same resource
+          but are not character-for-character identical will be considered
+          different for the purposes of identifier comparison.</t>
+
+          <t>Processors SHOULD resolve relative IRIs to their absolute form
+          using the base <spanx
+          style="verb">http://activitystrea.ms/schema/1.0/</spanx> prior to
+          comparison.  For example, processors SHOULD consider the following
+          IRIs as equivalent for the purpose of comparison:
+            <list style="symbols">
+              <t><spanx style="verb">http://activitystrea.ms/schema/1.0/post</spanx></t>
+              <t><spanx style="verb">post</spanx></t>
+            </list>
+          </t>
+        </section>
+
       </section>
 
       <section anchor="xml.object"
@@ -700,6 +708,24 @@
         target="atom.object.components"></xref>, with the meanings defined in that
         section, as well as any extension elements defined by the Atom
         serializations of the object type listed for the object.</t>
+      </section>
+
+      <section anchor="xml.object-type"
+               title="The activity:object-type Element">
+        <t>An <spanx style="verb">activity:object-type</spanx> element
+        represents the Object Type of an Object Construct as defined
+        in <xref target="object.type"></xref>. Its content is an IRI
+        reference that identifies the object type.</t>
+
+        <section anchor="xml.object-type.comparing"
+                 title="Comparing activity:object-type">
+          <t>The value of <spanx style="verb">activity:object-type</spanx>
+          elements can be used to determine whether an Object construct is of a
+          recognized type.  Processors MUST compare
+          <spanx style="verb">activity:object-type</spanx> elements using the
+          same comparison rules described in <xref
+          target="xml.verb.comparing"></xref>.</t>
+        </section>
       </section>
 
       <section anchor="xml.target"
@@ -721,8 +747,11 @@
       specifications to define the full schema of verbs and object types.</t>
 
       <t>The "Post" verb describes the act of authoring an object and then
-      publishing it online. The verb URI for the "Post" verb is <spanx
-      style="verb">http://activitystrea.ms/schema/1.0/post</spanx>.</t>
+      publishing it online. The IRI reference for the "Post" verb is:
+        <list>
+          <t><spanx style="verb">post</spanx></t>
+        </list>
+      </t>
 
       <t>The actor of an Activity Construct using the "Post" verb is an Object
       Construct representing the person or object that authored and posted the
