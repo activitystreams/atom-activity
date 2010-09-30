@@ -256,8 +256,7 @@
       using Implied Activity Shorthand.  Other specifications may define
       additional representations.</t>
 
-      <section anchor="atom.activity"
-               title="Activity represented as atom:entry">
+      <section anchor="atom.activity" title="Activity Representations">
         <t>Any valid Atom entry as defined by section 4.1.2 of <xref
         target="RFC4287"></xref> is a representation of an activity as defined
         in <xref target="activity"></xref>.</t>
