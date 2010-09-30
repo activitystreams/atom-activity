@@ -744,7 +744,7 @@
 
   <back>
     <references title="Normative References">
-      <reference anchor="RFC4287">
+      <reference anchor="RFC4287" target="http://tools.ietf.org/html/rfc4287">
         <front>
           <title>The Atom Syndication Format</title>
 
@@ -761,7 +761,7 @@
         </front>
       </reference>
 
-      <reference anchor="RFC2119">
+      <reference anchor="RFC2119" target="http://tools.ietf.org/html/rfc2119">
         <front>
           <title>Key words for use in RFCs to Indicate Requirement
           Levels</title>
@@ -774,7 +774,7 @@
         </front>
       </reference>
 
-      <reference anchor="RFC3986">
+      <reference anchor="RFC3986" target="http://tools.ietf.org/html/rfc3986">
         <front>
           <title>Uniform Resource Identifiers (URI): Generic Syntax</title>
 
@@ -795,7 +795,7 @@
         </front>
       </reference>
 
-      <reference anchor="RFC3987">
+      <reference anchor="RFC3987" target="http://tools.ietf.org/html/rfc3987">
         <front>
           <title>Internationalized Resource Identifiers (IRIs)</title>
 
@@ -811,20 +811,6 @@
         </front>
       </reference>
 
-      <!--
-      <reference anchor="RFC3339">
-        <front>
-          <title>Date and Time on the Internet: Timestamps</title>
-
-          <author fullname="Graham Klyne" initials="G." surname="Klyne">
-            <organization></organization>
-          </author>
-
-          <date month="July" year="2002" />
-        </front>
-      </reference>
-      -->
-
       <reference anchor="RSS2" target="http://www.rssboard.org/rss-2-0-11">
         <front>
           <title>RSS 2.0 Specification</title>
@@ -837,7 +823,7 @@
         </front>
       </reference>
 
-      <reference anchor="xml-names">
+      <reference anchor="xml-names" target="http://www.w3.org/TR/REC-xml-names/">
         <front>
           <title>Namespaces in XML 1.0 (Third Edition)</title>
 
@@ -849,7 +835,7 @@
         </front>
       </reference>
 
-      <reference anchor="xml-infoset">
+      <reference anchor="xml-infoset" target="http://www.w3.org/TR/xml-infoset/">
         <front>
           <title>XML Information Set (Second Edition)</title>
 
