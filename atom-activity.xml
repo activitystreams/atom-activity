@@ -166,11 +166,14 @@
         </section>
 
         <section anchor="activity.summary" title="Summary">
-          <t>An HTML representation of a natural language describing this
-          activity including visual elements such as thumbnails. Consumers MAY
-          use the value of this field, if set, as a fallback for when
-          the provided verb is not recognized. An Activity Construct MAY have a
-          summary but it MUST NOT have more than one.</t>
+          <t>An HTML representation of the activity, including visual elements
+          such as thumbnails. Consumers MAY use the value of this field to
+          present the activity to a user, in lieu of constructing a
+          representation from each of the activity's components.  Publishers
+          SHOULD include a summary for activities in order to provide a
+          fallback for parsers that are not Activity Streams aware.
+          An Activity Construct MAY have a summary but it MUST NOT have more
+          than one.</t>
         </section>
       </section>
 
