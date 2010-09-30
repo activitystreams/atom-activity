@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type='text/xsl' href='./rfc2629.xslt' ?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd">
 <?rfc toc="yes"?>
@@ -863,7 +863,30 @@
     </references>
 
     <section anchor="acknowledgements" title="Acknowledgements">
-      <t>...</t>
+      <t>The authors wish to thank the Activity Streams community and
+      implementers for their support, encouragement, and enthusiasm including
+      but not limited to: Abdul Qabiz, Adina Levin, Adrian Chan, Adriana Javier,
+      Alexandre Loureiro Solleiro, Ari Steinberg, Arne Roomann-Kurrik, Beau
+      Lebens, Ben Hedrington, Ben Metcalfe, Ben Werdmuller, Bill de hÓra, Bob
+      Aman, Bob Wyman, Brynn Evans, Charlie Cauthen, Chris Chabot, Christian
+      Crumlish, Dan Brickley, Danny Ayers, Dare Obasanjo, Darren Bounds, David
+      Cramer, David Recordon, DeWitt Clinton, Douglas Pearce, Ed Summers, Elias
+      Bizannes, Elisabeth Norris, Eric Woods, Evan Prodromou, Gee-Hsien Chuang,
+      Greg Biggers, Hillary Madsen, Howard Liptzin, Ian Kennedy, Ivan Pulleyn,
+      Jacob Kim, James Falkner, James Walker, Jason Kahn, Jeff Kunins, Jian Lin,
+      John Panzer, Jon Paul Davies, Jonathan Coffman, Jonathan Dugan, Joseph
+      Boyle, Joseph Hosten, Joseph Smarr, Jud Valeski, Julien Genestoux, Jyri
+      Engeström, Kaliya Hamlin, Kevin Marks, Laurent Eschenauer, Manu Mukerji,
+      Mark Weitzel, Marshall Kirkpatrick, Mary Hoder, Matt Leventi, Matt
+      Wilkinson, Matthias Muller-Prove, Max Engel,  Melvin Carvalho, Michael
+      Richardson, Nate Benes, NeilFred Picciotto, Nick Lothian, Nissan Dookeran,
+      Nitya Narasimhan, Pablo Martin, Pat G. Cappalaere, Peter Ferne, Peter
+      Reiser, Peter Saint-Andre, Phil Wolff, Philip (flip) Kromer, Rick Severson,
+      Robert Langbert, Todd Barnard, Ryan Boyd, Sam Sethi, Scott Raymond, Scott
+      Seely, Simon Grant, Simon Wistow, Stephen Garcia, Steve Ivy, Steven
+      Livingstone-Perez, Sylvain Carle, Sylvain Hellegouarch, Tantek Celik, Tatu
+      Saloranta, Tim Moore, Timothy Young, Todd Barnard, Tosh Meston, and Tyler
+      Gillies.</t>
     </section>
 
     <section anchor="examples" title="Examples">
