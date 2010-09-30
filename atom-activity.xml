@@ -899,143 +899,123 @@
     </section>
 
     <section anchor="examples" title="Examples">
-      <t>This appendix is non-normative. Where these examples include
-      fragments of XML documents, assume the namespace declarations <spanx
-      style="verb">xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/"</spanx>
-      are in scope.</t>
+      <t>This appendix is non-normative.</t>
 
-      <section anchor="examples.activity" title="Activity Entry Examples">
-        <figure anchor="examples.activity.simple">
-          <preamble>A typical activity entry</preamble>
+      <section anchor="examples.full" title="Full Activity Entry Examples">
+        <figure anchor="examples.full.simple">
+          <preamble>A typical activity entry:</preamble>
 
           <artwork><![CDATA[
-<entry>
-   <id>tag:photopanic.example.com,2008:activity01</id>
-   <title>Geraldine posted a Photo on PhotoPanic</title>
-   <published>2008-11-02T15:29:00Z</published>
-   <link rel="alternate" type="text/html"
-     href="http://example.com/geraldine/activities/1" />
-   <activity:verb>
-      http://activitystrea.ms/schema/1.0/post
-   </activity:verb>
-   <activity:object>
-      <id>tag:photopanic.example.com,2008:photo01</id>
-      <title>My Cat</title>
-      <published>2008-11-02T15:29:00Z</published>
-      <link rel="alternate" type="text/html"
-        href="http://example.com/geraldine/photos/1" />
-      <activity:object-type>
-          tag:atomactivity.example.com,2008:photo
-      </activity:object-type>
-      <source>
-          <title>Geraldine's Photos</title>
-          <link rel="self" type="application/atom+xml"
-            href="http://example.com/geraldine/photofeed.xml" />
-          <link rel="alternate" type="text/html"
-            href="http://example.com/geraldine/" />
-      </source>
-   </activity:object>
-   <content type="html">
-       &lt;p&gt;Geraldine posted a Photo on PhotoPanic&lt;/p&gt;
-       &lt;img src="/geraldine/photo1.jpg"&gt;
-   </content>
+<entry xmlns="http://www.w3.org/2005/Atom"
+       xmlns:activity="http://activitystrea.ms/spec/1.0/">
+  <id>tag:photopanic.example.com,2009:activity/4859/4352</id>
+  <title>Geraldine posted a Photo on PhotoPanic</title>
+  <published>2009-11-02T15:29:00Z</published>
+  <link rel="alternate" type="text/html"
+        href="http://example.com/geraldine/activities/4352" />
+  <activity:verb>post</activity:verb>
+  <activity:object>
+    <id>tag:photopanic.example.com,2009:photo/4352</id>
+    <title>My Cat</title>
+    <published>2009-11-02T15:29:00Z</published>
+    <link rel="alternate" type="text/html"
+          href="http://example.com/geraldine/photos/4352" />
+    <activity:object-type>
+      tag:atom-activity.example.com,2009:photo
+    </activity:object-type>
+  </activity:object>
+  <content type="html">
+    &lt;p&gt;Geraldine posted a Photo on PhotoPanic&lt;/p&gt;
+    &lt;img src="/geraldine/photos/4352.jpg"&gt;
+  </content>
 </entry>
 ]]></artwork>
 
           <postamble>This example shows a typical activity entry using the
           post verb defined by this specification and a hypothetical "photo"
-          object type. It also demonstrates the use of atom:title and
-          atom:content to provide fallback content for feed processors that do
-          not support activity extensions. An activity stream application
-          might render this entry into the sentence "Geraldine posted a photo
-          titled 'My Cat' in Geraldine's Photos", with the photo title and the
-          source feed title presented as links.</postamble>
+          object type. It also demonstrates the use of
+          <spanx style="verb">atom:title</spanx> and
+          <spanx style="verb">atom:content</spanx> to provide fallback content
+          for feed processors that do not support activity extensions. An
+          activity stream application might render this entry into the sentence
+          "Geraldine posted a photo titled 'My Cat'", with the photo title
+          presented as a link.</postamble>
         </figure>
 
-        <figure anchor="examples.activity.complex">
+        <figure anchor="examples.full.complex">
+          <preamble>A slightly more complex activity entry:</preamble>
           <artwork><![CDATA[
-<entry>
-    <id>tag:photopanic.example.com,2009:/activity/4859568/PhotoAdd/2519358/2009171</id>
-    <title type="text">Geraldine added two new photos to the My Pets album.</title>
-    <published>2009-06-21T00:28:35Z</published>
-    <author>
-      <name>Geraldine</name>
-      <uri>http://example.com/geraldine</uri>
-      <id>tag:photopanic.example.com,2009:/Person/4859568</id>
-      <activity:object-type>
-        http://activitystrea.ms/schema/1.0/person
-      </activity:object-type>
-      <link rel="alternate" type="text/html"
-        href="http://example.com/geraldine" />
-    </author>
+<entry xmlns="http://www.w3.org/2005/Atom"
+       xmlns:activity="http://activitystrea.ms/spec/1.0/">
+  <id>tag:photopanic.example.com,2009:/activity/4859/1643</id>
+  <title>Geraldine posted a photo to the My Pets album.</title>
+  <published>2009-06-21T00:28:35Z</published>
+  <link rel="alternate" type="text/html"
+        href="http://example.com/geraldine/activities/1643" />
+  <author>
+    <name>Geraldine</name>
+    <uri>http://example.com/geraldine</uri>
+    <id>tag:photopanic.example.com,2009:person/4859</id>
+    <activity:object-type>
+      tag:atom-activity.example.com,2009:person
+    </activity:object-type>
     <link rel="alternate" type="text/html"
-      href="http://example.com/geraldine/activities/1234" />
-    <content type="xhtml">...</content>
-    <activity:target>
-      <activity:object-type>http://activitystrea.ms/schema/1.0/photo-album</activity:object-type>
-      <id>tag:photopanic.example.com,2009:/Photo_Album/2519358</id>
-      <title>My Pets</title>
-      <link rel="alternate" type="text/html"
-            href="/geraldine/albums/pets" />
-    </activity:target>
-    <activity:object>
-      <activity:object-type>http://activitystrea.ms/schema/1.0/photo</activity:object-type>
-      <activity:object-type>http://activitystrea.ms/schema/1.0/image</activity:object-type>
-      <id>tag:photopanic.example.com,2009:/Photo/2519358/60764840</id>
-      <title>My Cat</title>
-      <link rel="alternate" type="text/html"
-            href="/geraldine/photos/1643" />
-      <link rel="preview" type="image/jpeg"
-            href="/geraldine/photos/1643/thumb.jpg" />
-      <link rel="enclosure" type="image/jpeg"
-            href="/geraldine/photos/1643/full.jpg" />
-    </activity:object>
-    <activity:object>
-      <activity:object-type>http://activitystrea.ms/schema/1.0/image</activity:object-type>
-      <activity:object-type>http://activitystrea.ms/schema/1.0/photo</activity:object-type>
-      <id>tag:photopanic.example.com,2009:/Photo/2519358/60764844</id>
-      <title></title>
-      <link rel="alternate" type="text/html"
-            href="/geraldine/photos/1634" />
-      <link rel="preview" type="image/jpeg"
-            href="/geraldine/photos/1634/thumb.jpg" />
-      <link rel="enclosure" type="image/jpeg"
-            href="/geraldine/photos/1634/full.jpg" />
-    </activity:object>
+          href="http://example.com/geraldine" />
+  </author>
+  <activity:object>
+    <id>tag:photopanic.example.com,2009:photo/1643</id>
+    <title>My Cat</title>
+    <link rel="alternate" type="text/html"
+          href="/geraldine/photos/1643" />
+    <link rel="preview" type="image/jpeg"
+          href="/geraldine/photos/1643/thumb.jpg" />
+    <link rel="enclosure" type="image/jpeg"
+          href="/geraldine/photos/1643/full.jpg" />
+    <activity:object-type>
+      tag:atom-activity.example.com,2009:photo
+    </activity:object-type>
+  </activity:object>
+  <activity:target>
+    <id>tag:photopanic.example.com,2009:photo-album/2519</id>
+    <title>My Pets</title>
+    <link rel="alternate" type="text/html"
+      href="/geraldine/albums/pets" />
+    <activity:object-type>
+      tag:atom-activity.example.com,2009:photo-album
+    </activity:object-type>
+  </activity:target>
+  <content type="xhtml">...</content>
 </entry>
 ]]></artwork>
 
-          <postamble>Example: An activity entry showing the use of the actor,
-          verb, object and target elements. Also illustrated is the use of
-          multiple objects in a single activity entry, which serves as a
-          shorthand for publishing multiple consecutive activities with the
-          same verb and target.</postamble>
+          <postamble>This example demonstrates the use of the actor,
+          verb, object and target elements.</postamble>
         </figure>
       </section>
 
-      <section anchor="examples.object" title="Object Entry Example">
+      <section anchor="examples.implied" title="Implied Activity Entry Example">
         <figure>
-          <preamble>A simple object entry</preamble>
+          <preamble>A simple implied activity entry:</preamble>
 
           <artwork><![CDATA[
-<entry>
-   <id>tag:photopanic.example.com,2008:photo01</id>
-   <title>My Cat</title>
-   <published>2008-11-02T15:29:00Z</published>
-   <link rel="alternate" type="text/html"
-         href="/geraldine/photos/1" />
-   <activity:object-type>
-       tag:atomactivity.example.com,2008:photo
-   </activity:object-type>
+<entry xmlns="http://www.w3.org/2005/Atom"
+       xmlns:activity="http://activitystrea.ms/spec/1.0/">
+  <id>tag:photopanic.example.com,2009:photo/4352</id>
+  <title>My Cat</title>
+  <published>2009-11-02T15:29:00Z</published>
+  <link rel="alternate" type="text/html"
+        href="http://example.com/geraldine/photos/4352" />
+  <activity:object-type>
+    tag:atom-activity.example.com,2009:photo
+  </activity:object-type>
 </entry>
 ]]></artwork>
 
-          <postamble>This example shows an object entry describing the object
-          referred to in the activity from <xref
-          target="examples.activity"></xref>. That example would also be an
-          acceptable implied post activity for this entry, assuming that this
-          entry were in a feed whose attributes match those of the atom:source
-          in the activity entry example.</postamble>
+          <postamble>This example shows the same activity from
+          <xref target="examples.full"></xref>, but represented using the
+          implied activity shorthand.  Note that some of the components of the
+          Activity Construct, such as title and summary, are not supported by
+          this representation.</postamble>
         </figure>
       </section>
     </section>
