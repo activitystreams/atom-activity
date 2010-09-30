@@ -250,67 +250,60 @@
 
     <section anchor="atom" title="Atom Representation">
       <t>Activities can be represented in an Atom document using a combination
-      of conventions and custom extension elements. Activities are represented
-      using atom:entry elements but may exist in one of two forms, an Activity
-      Entry or an Object Entry.</t>
+      of conventions and custom extension elements. This specification defines
+      two ways that an activity can be represented using <spanx
+      style="verb">atom:entry</spanx> elements, as a Full Activity Entry or
+      using Implied Activity Shorthand.  Other specifications may define
+      additional representations.</t>
 
       <section anchor="atom.activity"
                title="Activity represented as atom:entry">
         <t>Any valid Atom entry as defined by section 4.1.2 of <xref
-        target="RFC4287"></xref> is a representation of one or more activities
-        as defined in <xref target="activity"></xref>.</t>
+        target="RFC4287"></xref> is a representation of an activity as defined
+        in <xref target="activity"></xref>.</t>
 
-        <t>If the atom:entry contains at least one activity:object element
-        then it is a Full Activity Entry and MUST be interpreted as described
-        in <xref target="atom.activity.full"></xref>. Otherwise the entry is an
+        <t>If the atom:entry contains an
+        <spanx style="verb">activity:object</spanx> element then it is a Full
+        Activity Entry and MUST be interpreted as described in
+        <xref target="atom.activity.full"></xref>. Otherwise the entry is an
         Implied Activity Shorthand Entry and MUST be interpreted as described
         in <xref target="atom.activity.implied"></xref>.</t>
 
-        <t>Although there is not a one-to-one mapping between an Atom entry
-        and an activity, consumers SHOULD retain the value of the atom:id
-        element from which each activity was produced such that these
-        activities can be identified should an entry be referred to by another
-        Atom feature which is not aware of the activity streams data model
-        defined in this specification. This id is not unique across all
-        activities and has no semantic significance for Activity Streams
-        processing.</t>
-
         <section anchor="atom.activity.full" title="Full Activity Entry">
-          <t>A Full Activity Entry represents a selection of one or more
-          Activity Constructs which have differing Objects but all share the
-          same values for the other Activity Construct properties. An activity
-          is produced for each <spanx style="verb">activity:object</spanx>
-          child element of the Full Activity Entry. In this section, "the
-          entry" shall refer to the <spanx style="verb">atom:entry</spanx>
-          element that is a Full Activity Entry.</t>
+          <t>A Full Activity Entry is one in which the
+          <spanx style="verb">atom:entry</spanx> represents the full
+          <xref target="activity">Activity Construct</xref>.  The components of
+          the activity are represented by child elements of the
+          <spanx style="verb">atom:entry</spanx>.  In this section, "the entry"
+          refers to the <spanx style="verb">atom:entry</spanx> element that
+          represents the Full Activity Entry.</t>
 
-          <t>The components of the Activity Constructs are represented in a
+          <t>The components of the Activity Construct are represented in a
           Full Activity Entry as follows:</t>
 
           <t><list style="hanging">
-              <t hangText="Actor">The <xref
-              target="activity.actor">Actor</xref> of each of the Activity
-              Constructs is represented by the atom:author element that
+              <t hangText="Actor">The <xref target="activity.actor">Actor</xref>
+              of the Activity Construct is represented by the
+              <spanx style="verb">atom:author</spanx> element that
               applies to the entry, as defined by section 4.2.1 of <xref
               target="RFC4287"></xref>. The representation of an Object
-              Construct as an atom:author element is defined in <xref
-              target="atom.object.author"></xref>.</t>
+              Construct as an <spanx style="verb">atom:author</spanx> element
+              is defined in <xref target="atom.object.author"></xref>.</t>
 
-              <t hangText="Object">Each <spanx style="verb">activity:object</spanx>
-              child element of the entry, as defined in <xref
-              target="xml.object"></xref>, represents the <xref
-              target="activity.object">Object</xref> of its respective
-              Activity Construct.</t>
+              <t hangText="Object">The <xref target="activity.object">Object</xref>
+              of the Activity Construct is represented by the
+              <spanx style="verb">activity:object</spanx> child element of the entry,
+              as defined in <xref target="xml.object"></xref>.</t>
 
-              <t hangText="Target">The <xref
-              target="activity.target">Target</xref> of each of the Activity
-              Constructs is represented by the first activity:target child
+              <t hangText="Target">The <xref target="activity.target">Target</xref>
+              of the Activity Construct is represented by the
+              <spanx style="verb">activity:target</spanx> child
               element of the entry, as defined in <xref
               target="xml.target"></xref>. If no such element is
-              present, the Activity Constructs have no Target.</t>
+              present, the Activity Construct has no Target.</t>
 
               <t hangText="Verb">The <xref target="activity.verb">verb
-              URI</xref> of the Activity Construct is represented by an <spanx
+              IRI</xref> of the Activity Construct is represented by an <spanx
               style="verb">activity:verb</spanx> child element as defined in
               <xref target="xml.verb"></xref>. If the entry has no
               <spanx style="verb">activity:verb</spanx> child element, then
@@ -318,81 +311,60 @@
               <xref target="post"></xref>.</t>
 
               <t hangText="Time">The <xref target="activity.time">Time</xref>
-              of each of the Activity Constructs is represented by the
-              atom:published child element of the entry, as defined in section
-              4.2.9 of <xref target="RFC4287"></xref>.</t>
+              of the Activity Construct is represented by the
+              <spanx style="verb">atom:published</spanx> child element of the
+              entry, as defined in section 4.2.9 of
+              <xref target="RFC4287"></xref>.</t>
 
-              <t hangText="Title">If the entry has exactly one <spanx
-              style="verb">activity:object</spanx> child element, the
-              <xref target="activity.title">Title</xref> of each of the single
-              Activity Construct represented by the entry is represented by
-              the <spanx style="verb">atom:title</spanx> child element as
-              defined in section 3.2.1 of <xref target="RFC4287"></xref>. If
-              there are multiple <spanx style="verb">activity:object</spanx>
-              child elements then this property is not set for any of the
-              Activity Constructs represented by the entry.</t>
+              <t hangText="Title">The <xref target="activity.title">Title</xref>
+              of the Activity Construct is represented by the
+              <spanx style="verb">atom:title</spanx> child element of the
+              entry, as defined in section 3.2.1 of
+              <xref target="RFC4287"></xref>.</t>
 
-              <t hangText="Summary">If the entry has exactly one <spanx
-              style="verb">activity:object</spanx> child element, the the
-              <xref target="activity.summary">Summary</xref> of each of the single
-              Activity Construct represented by the entry is represented by
-              the <spanx style="verb">atom:content</spanx> child element as
-              defined in section 4.1.3 of <xref target="RFC4287"></xref>. If
-              there are multiple <spanx style="verb">activity:object</spanx>
-              child elements then this property is not set for any of the
-              Activity Constructs represented by the entry.</t>
-
-            </list></t>
-
-          <t>The set of activities represented by a full activity entry is the
-          set of activities created by combining the Object Construct
-          represented by each <spanx style="verb">activity:object</spanx>
-          element with the other common properties.</t>
-
-          <t>For entries that have multiple <spanx style="verb">activity:object</spanx>
-          child elements, publishers SHOULD also include in the entry <spanx
-          style="verb">atom:title</spanx>. <spanx style="verb">atom:content</spanx>
-          and <spanx style="verb">atom:link</spanx> elements that describe the
-          entire set of activities represented by the entry in a form that is
-          suitable for consumption by an Atom processor that does not accept
-          the Activity Streams extensions. These elements have no meaning for
-          activity streams processing.</t>
+              <t hangText="Summary">The <xref target="activity.summary">Summary</xref>
+              of the Activity Construct is represented by the
+              <spanx style="verb">atom:content</spanx> child element of the
+              entry, as defined in section 4.1.3 of
+              <xref target="RFC4287"></xref>.</t>
+            </list>
+          </t>
         </section>
 
         <section anchor="atom.activity.implied"
                  title="Implied Activity Shorthand">
-          <t>An implied activity shorthand entry represents exactly one
+          <t>An implied activity shorthand entry represents an
           Activity Construct in terms of its object. In this mode, the <spanx
-          style="verb">atom:entry</spanx> actually directly represents the
-          Object Construct that is the object of the Activity Construct but
-          also represents the Activity Construct itself via additional
-          elements. In this section. "the entry" refers to the <spanx
+          style="verb">atom:entry</spanx> primarily represents the
+          Object Construct that is the object of the Activity Construct, but
+          also represents certain additional components of the Activity
+          Construct. In this section, "the entry" refers to the <spanx
           style="verb">atom:entry</spanx> element.</t>
 
           <t>The components of the Activity Construct are represented in an
           Implied Activity Shorthand Entry as follows:</t>
 
           <t><list style="hanging">
-              <t hangText="Actor">The <xref
-              target="activity.actor">Actor</xref> of the Activity Construct
-              is represented by the atom:author element that applies to the
-              entry, as defined by section 4.2.1 of <xref
+              <t hangText="Actor">The <xref target="activity.actor">Actor</xref>
+              of the Activity Construct is represented by the
+              <spanx style="verb">atom:author</spanx> element that
+              applies to the entry, as defined by section 4.2.1 of <xref
               target="RFC4287"></xref>. The representation of an Object
               Construct as an atom:author element is defined in <xref
               target="atom.object.author"></xref>.</t>
 
               <t hangText="Object">The <xref
-              target="activity.object">Object</xref> ofthe Activity Construct
+              target="activity.object">Object</xref> of the Activity Construct
               is represented by the entry itself. The representation of an
-              Object Construct as an atom:entry element uses the child
-              elements defined in <xref
+              Object Construct as an <spanx style="verb">atom:entry</spanx>
+              element uses the child elements defined in <xref
               target="atom.object.components"></xref>.</t>
 
               <t hangText="Target">The Activity Construct does not have a
               <xref target="activity.target">Target</xref>.</t>
 
               <t hangText="Verb">The <xref target="activity.verb">verb
-              URI</xref> of the Activity Construct is represented by an <spanx
+              URI</xref> of the Activity Construct is represented by the <spanx
               style="verb">activity:verb</spanx> child element as defined in
               <xref target="xml.verb"></xref>. If the entry has no
               <spanx style="verb">activity:verb</spanx> child element, then
@@ -400,9 +372,10 @@
               <xref target="post"></xref>.</t>
 
               <t hangText="Time">The <xref target="activity.time">Time</xref>
-              of each of the Activity Constructs is represented by the
-              atom:published child element of the entry, as defined in section
-              4.2.9 of <xref target="RFC4287"></xref>.</t>
+              of the Activity Construct is represented by the
+              <spanx style="verb">atom:published</spanx> child element of the
+              entry, as defined in section 4.2.9 of
+              <xref target="RFC4287"></xref>.</t>
 
               <t hangText="Title">The Activity Construct does not have a <xref
               target="activity.title">Title</xref>.</t>
@@ -412,7 +385,7 @@
             </list></t>
 
           <t>The Implied Activity Shorthand is an accommodation to allow
-          activity streams annotations to be added to a feed that is
+          activity metadata to be added to a feed that is
           considered by traditional Atom consumers to be a list of content
           objects rather than a list of activities, without changing the
           meaning of that feed. Such feeds can often be recognized
@@ -550,7 +523,7 @@
     </section>
 
     <section anchor="rss" title="RSS 2.0 Representation">
-      <t>Activities can be represented in an RSS 2.0.11 document, as defined
+      <t>Activities can be represented in an RSS 2.0 document, as defined
       by <xref target="RSS2"></xref>, using a combination of conventions and
       custom extension elements. An activity is represented using an RSS
       "item" element. The RSS serialization only supports a subset of the
@@ -561,7 +534,7 @@
       serialization are recommended to use the Atom serialization instead for
       best results. This RSS serialization is defined only as a means for
       those already publishing streams of objects as RSS to produce minimally
-      useful list of activities for activity-aware consumers.</t>
+      useful lists of activities for activity-aware consumers.</t>
 
       <t>A specific RSS document has a single activity actor that applies to
       all activities it represents. This actor has no known id, name, url or
@@ -598,7 +571,7 @@
             <t hangText="Target">The Activity Construct does not have a <xref
             target="activity.target">Target</xref>.</t>
 
-            <t hangText="Verb">Each <xref target="activity.verb">verb
+            <t hangText="Verb">The <xref target="activity.verb">verb
             URI</xref> of the Activity Construct is represented by an <spanx
             style="verb">activity:verb</spanx> child element as defined in
             <xref target="xml.verb"></xref>. If the item has no
@@ -607,9 +580,9 @@
             target="post"></xref>.</t>
 
             <t hangText="Time">The <xref target="activity.time">Time</xref> of
-            each of the Activity Constructs is represented by the pubDate
-            child element of the item, as defined in <xref
-            target="RSS2"></xref>.</t>
+            the Activity Construct is represented by the
+            <spanx style="verb">pubDate</spanx> child element of the item, as
+            defined in <xref target="RSS2"></xref>.</t>
 
             <t hangText="Title">The Activity Construct does not have a <xref
             target="activity.title">Title</xref>.</t>
