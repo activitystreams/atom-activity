@@ -261,7 +261,7 @@
         target="RFC4287"></xref> is a representation of an activity as defined
         in <xref target="activity"></xref>.</t>
 
-        <t>If the atom:entry contains an
+        <t>If the <spanx style="verb">atom:entry</spanx> contains an
         <spanx style="verb">activity:object</spanx> element then it is a Full
         Activity Entry and MUST be interpreted as described in
         <xref target="atom.activity.full"></xref>. Otherwise the entry is an
@@ -349,8 +349,8 @@
               <spanx style="verb">atom:author</spanx> element that
               applies to the entry, as defined by section 4.2.1 of <xref
               target="RFC4287"></xref>. The representation of an Object
-              Construct as an atom:author element is defined in <xref
-              target="atom.object.author"></xref>.</t>
+              Construct as an <spanx style="verb">atom:author element</spanx>
+              is defined in <xref target="atom.object.author"></xref>.</t>
 
               <t hangText="Object">The <xref
               target="activity.object">Object</xref> of the Activity Construct
@@ -689,7 +689,7 @@
     </section>
 
     <section anchor="post" title="The &quot;Post&quot; Verb">
-      <t>This specificiation defines one initial verb and defers to other
+      <t>This specification defines one initial verb and defers to other
       specifications to define the full schema of verbs and object types.</t>
 
       <t>The "Post" verb describes the act of authoring an object and then
