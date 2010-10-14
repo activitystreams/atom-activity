@@ -63,7 +63,7 @@
       display.</t>
 
       <section anchor="namespace" title="Namespace and Version">
-        <t>The <xref target="xml-names">XML Namespaces</xref> URI for the XML
+        <t>The XML Namespaces <xref target="xml-names"></xref> URI for the XML
         data format described in this specification is:
           <list>
             <t><spanx style="verb">http://activitystrea.ms/spec/1.0/</spanx></t>
@@ -735,11 +735,6 @@
       <t>The target of the Activity Construct, if present, represents the item
       into which the object is posted. For example, this could represent a
       blog that the author has posted in.</t>
-
-      <t>It is not appropriate to use the target of the Activity Construct to
-      represent an Object Construct that this new Object Construct is posted
-      in reply to. Instead, this SHOULD be represented as the In Reply To
-      Object component of the new object.</t>
     </section>
 
     <section anchor="security" title="Security Considerations">
