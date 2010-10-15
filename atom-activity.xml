@@ -990,9 +990,7 @@
     <name>Geraldine</name>
     <uri>http://example.com/geraldine</uri>
     <id>tag:photopanic.example.com,2009:person/4859</id>
-    <activity:object-type>
-      tag:atom-activity.example.com,2009:person
-    </activity:object-type>
+    <activity:object-type>person</activity:object-type>
     <link rel="alternate" type="text/html"
           href="http://example.com/geraldine" />
   </author>
@@ -1005,18 +1003,13 @@
           href="/geraldine/photos/1643/thumb.jpg" />
     <link rel="enclosure" type="image/jpeg"
           href="/geraldine/photos/1643/full.jpg" />
-    <activity:object-type>
-      tag:atom-activity.example.com,2009:photo
-    </activity:object-type>
+    <activity:object-type>photo</activity:object-type>
   </activity:object>
   <activity:target>
     <id>tag:photopanic.example.com,2009:photo-album/2519</id>
     <title>My Pets</title>
-    <link rel="alternate" type="text/html"
-      href="/geraldine/albums/pets" />
-    <activity:object-type>
-      tag:atom-activity.example.com,2009:photo-album
-    </activity:object-type>
+    <link rel="alternate" type="text/html" href="/geraldine/albums/pets" />
+    <activity:object-type>photo-album</activity:object-type>
   </activity:target>
   <content type="xhtml">...</content>
 </entry>
@@ -1032,16 +1025,12 @@
           <preamble>A simple implied activity entry:</preamble>
 
           <artwork><![CDATA[
-<entry xmlns="http://www.w3.org/2005/Atom"
-       xmlns:activity="http://activitystrea.ms/spec/1.0/">
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/">
   <id>tag:photopanic.example.com,2009:photo/4352</id>
   <title>My Cat</title>
-  <published>2009-11-02T15:29:00Z</published>
-  <link rel="alternate" type="text/html"
-        href="http://example.com/geraldine/photos/4352" />
-  <activity:object-type>
-    tag:atom-activity.example.com,2009:photo
-  </activity:object-type>
+  <published>2010-11-02T15:29:00Z</published>
+  <link rel="alternate" type="text/html" href="http://example.com/geraldine/photos/4352" />
+  <activity:object-type>photo</activity:object-type>
 </entry>
 ]]></artwork>
 
