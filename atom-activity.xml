@@ -36,7 +36,7 @@
       <organization>Microsoft</organization>
     </author>
 
-    <date day="20" month="September" year="2010" />
+    <date day="15" month="October" year="2010" />
 
     <abstract>
       <t>This document presents an XML format that allows activities on social
@@ -940,23 +940,18 @@
           <preamble>A typical activity entry:</preamble>
 
           <artwork><![CDATA[
-<entry xmlns="http://www.w3.org/2005/Atom"
-       xmlns:activity="http://activitystrea.ms/spec/1.0/">
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/">
   <id>tag:photopanic.example.com,2009:activity/4859/4352</id>
   <title>Geraldine posted a Photo on PhotoPanic</title>
   <published>2009-11-02T15:29:00Z</published>
-  <link rel="alternate" type="text/html"
-        href="http://example.com/geraldine/activities/4352" />
+  <link rel="alternate" type="text/html" href="http://example.com/geraldine/activities/4352" />
   <activity:verb>post</activity:verb>
   <activity:object>
     <id>tag:photopanic.example.com,2009:photo/4352</id>
     <title>My Cat</title>
     <published>2009-11-02T15:29:00Z</published>
-    <link rel="alternate" type="text/html"
-          href="http://example.com/geraldine/photos/4352" />
-    <activity:object-type>
-      tag:atom-activity.example.com,2009:photo
-    </activity:object-type>
+    <link rel="alternate" type="text/html" href="http://example.com/geraldine/photos/4352" />
+    <activity:object-type>photo</activity:object-type>
   </activity:object>
   <content type="html">
     &lt;p&gt;Geraldine posted a Photo on PhotoPanic&lt;/p&gt;
@@ -979,30 +974,24 @@
         <figure anchor="examples.full.complex">
           <preamble>A slightly more complex activity entry:</preamble>
           <artwork><![CDATA[
-<entry xmlns="http://www.w3.org/2005/Atom"
-       xmlns:activity="http://activitystrea.ms/spec/1.0/">
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:activity="http://activitystrea.ms/spec/1.0/">
   <id>tag:photopanic.example.com,2009:/activity/4859/1643</id>
   <title>Geraldine posted a photo to the My Pets album.</title>
-  <published>2009-06-21T00:28:35Z</published>
-  <link rel="alternate" type="text/html"
-        href="http://example.com/geraldine/activities/1643" />
+  <published>2010-06-21T00:28:35Z</published>
+  <link rel="alternate" type="text/html" href="http://example.com/geraldine/activities/1643" />
   <author>
     <name>Geraldine</name>
     <uri>http://example.com/geraldine</uri>
     <id>tag:photopanic.example.com,2009:person/4859</id>
     <activity:object-type>person</activity:object-type>
-    <link rel="alternate" type="text/html"
-          href="http://example.com/geraldine" />
+    <link rel="alternate" type="text/html" href="http://example.com/geraldine" />
   </author>
   <activity:object>
     <id>tag:photopanic.example.com,2009:photo/1643</id>
     <title>My Cat</title>
-    <link rel="alternate" type="text/html"
-          href="/geraldine/photos/1643" />
-    <link rel="preview" type="image/jpeg"
-          href="/geraldine/photos/1643/thumb.jpg" />
-    <link rel="enclosure" type="image/jpeg"
-          href="/geraldine/photos/1643/full.jpg" />
+    <link rel="alternate" type="text/html" href="/geraldine/photos/1643" />
+    <link rel="preview" type="image/jpeg" href="/geraldine/photos/1643/thumb.jpg" />
+    <link rel="enclosure" type="image/jpeg" href="/geraldine/photos/1643/full.jpg" />
     <activity:object-type>photo</activity:object-type>
   </activity:object>
   <activity:target>
