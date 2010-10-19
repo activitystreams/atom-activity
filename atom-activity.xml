@@ -311,14 +311,16 @@
               <t hangText="Title">The <xref target="activity.title">Title</xref>
               of the Activity Construct is represented by the
               <spanx style="verb">atom:title</spanx> child element of the
-              entry, as defined in section 3.2.1 of
-              <xref target="RFC4287"></xref>.</t>
+              entry, as defined in section 4.2.14 of
+              <xref target="RFC4287"></xref>.  Consumers MUST convert the value
+              into HTML if necessary.</t>
 
               <t hangText="Summary">The <xref target="activity.summary">Summary</xref>
               of the Activity Construct is represented by the
               <spanx style="verb">atom:content</spanx> child element of the
               entry, as defined in section 4.1.3 of
-              <xref target="RFC4287"></xref>.</t>
+              <xref target="RFC4287"></xref>.  Consumers MUST convert the value
+              into HTML if necessary.</t>
             </list>
           </t>
         </section>
@@ -457,13 +459,15 @@
               <t hangText="Name">The <xref target="object.name">name</xref> of
               the Object Construct is represented using the <spanx
               style="verb">atom:title</spanx> element, as defined in section
-              3.2.1 of <xref target="RFC4287"></xref>.</t>
+              4.2.14 of <xref target="RFC4287"></xref>.  Consumers MUST convert
+              the value into HTML if necessary.</t>
 
               <t hangText="Summary">The <xref
               target="object.summary">summary</xref> of the Object Construct
               is represented using the <spanx style="verb">atom:summary</spanx>
               element, as defined in section 4.2.13 of <xref
-              target="RFC4287"></xref>).</t>
+              target="RFC4287"></xref>.  Consumers MUST convert the value into
+              HTML if necessary.</t>
 
               <t hangText="Representative Image">The <xref
               target="object.image">representative image</xref> of the Object
