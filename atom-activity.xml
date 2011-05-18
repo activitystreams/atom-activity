@@ -12,9 +12,9 @@
 <?rfc compact="yes"?>
 <?rfc subcompact="no"?>
 <?rfc private="Activity Streams Working Group"?>
-<rfc docName="atom-activity-10">
+<rfc>
   <front>
-    <title abbrev="AtomActivity">Atom Activity Extensions 1.0</title>
+    <title abbrev="AtomActivity">Atom Activity Streams 1.0</title>
 
     <author fullname="Martin Atkins" initials="M." surname="Atkins">
       <organization>SAY Media</organization>
@@ -772,10 +772,10 @@
     </section>
 
     <section anchor="license" title="License">
-      <t>As of October 12 2010, the following persons or entities have made this
+      <t>As of [date], the following persons or entities have made this
       Specification available under the Open Web Foundation Agreement Version
-      0.9, which is available at
-      <eref target="http://www.openwebfoundation.org/legal/agreement-09" />.
+      1.0, which is available at
+      <eref target="http://www.openwebfoundation.org/legal/" />.
 
         <list>
           <t>[List of persons or entities]</t>
@@ -783,8 +783,8 @@
       </t>
 
       <t>You can review the signed copies of the Open Web Foundation Agreement
-      Version 0.9 for this Specification at
-      <eref target="http://activitystrea.ms/agreements" />, which may also
+      Version 1.0 for this Specification at
+      <eref target="http://activitystrea.ms/licensing/" />, which may also
       include additional parties to those listed above.</t>
 
       <t>Your use of this Specification may be subject to other third party
